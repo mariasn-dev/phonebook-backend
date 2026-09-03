@@ -1,11 +1,14 @@
-import URL from "../.env";
+import dotenv from "dotenv";
+dotenv.config();
 
 import mongoose from "mongoose";
+
+const url = process.env.URL;
 
 mongoose.set("strictQuery", false);
 
 mongoose
-  .connect(URL)
+  .connect(url)
   .then(() => {
     console.log("Connected to database");
   })
@@ -18,14 +21,14 @@ const personSchema = new mongoose.Schema({
   number: String,
 });
 
-personSchema.set('toJSON', {
+personSchema.set("toJSON", {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
-    delete returnedObject._id
-    delete returnedObject.__v
-  }
-})
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  },
+});
 
-const Person = new mongoose.model("Person", personSchema);
+const Person = mongoose.model("Person", personSchema);
 
 export default Person;
