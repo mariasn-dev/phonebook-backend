@@ -1,6 +1,6 @@
 # Phonebook Backend
 
-RESTful API for managing a phonebook directory, built with **Node.js**,**Express** and **MongoDB**.
+RESTful API for managing a phonebook directory, built with **Node.js**, **Express** and **MongoDB**.
 
 ## Deployment
 
